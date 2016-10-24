@@ -24,7 +24,9 @@ class CarWashTest < Minitest::Test
   end
 
   def test_it_can_hire_employees
-    assert CarWash.new("Boulder, CO", 2003).hire_employee 
+    result = CarWash.new("Boulder, CO", 2003)
+    result.hire_employees(1)
+    assert_equal 1, result.employees
   end
 
 end

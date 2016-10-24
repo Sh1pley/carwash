@@ -1,19 +1,15 @@
-require './lib/employee'
+
 
 class CarWash
 
+  attr_reader :opening_year, 
+              :location, 
+              :employees
 
   def initialize(location, year)
     @opening_year = year
     @location = location
-  end
-
-  def opening_year
-    @opening_year
-  end
-
-  def location
-    @location
+    @employees = 0
   end
 
   def city
@@ -21,10 +17,11 @@ class CarWash
   end
 
   def state
-    @location.split(",")[1].gsub(" ", "")
+    @location.split(", ")[1]
   end
 
-  def hire_employee
-    Employee.new
+  def hire_employees(num)
+    @employees += num
   end
+
 end
