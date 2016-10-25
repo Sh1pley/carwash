@@ -13,15 +13,19 @@ class CarWashTest < Minitest::Test
     assert_equal 2005, result.opening_year
   end
 
-  def test_it_can_have_location
+  def test_it_can_have_location # debatable whether we need this...
     result = CarWash.new("Denver, CO", 2010)
     assert_equal "Denver, CO", result.location
   end
 
   def test_it_knows_its_state
     result = CarWash.new("Denver, CO", 2121)
-    assert_equal "CO", result.state
+    assert_equal "CO", result.state # should be location_state (small detail)
   end
+
+  # Would like to see a test here for location_city
+
+  # Would like to see test that default employees is 0
 
   def test_it_can_hire_employees
     result = CarWash.new("Boulder, CO", 2003)
